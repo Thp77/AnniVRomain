@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Joyeux Anniversaire Romain</title>
+</head>
+<body>
+    <div class="container">
+    
+        <div id="cake" onclick="explodeCake()">
+          <div id="candle"></div>
+        </div>
+        <div id="confetti-container"></div>
+      </div>
+      <script>function explodeCake() {
+  // Hide the cake and candle
+  document.getElementById("cake").style.display = "none";
+  document.getElementById("candle").style.display = "none";
+
+  // Create confetti
+  const confettiContainer = document.getElementById("confetti-container");
+  for (let i = 0; i < 100; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "%";
+    confetti.style.animationDelay = Math.random() * 2 + "s";
+    confettiContainer.appendChild(confetti);
+  }
+
+  // Show the happy birthday message letter by letter
+  const messageText = "Joyeux Anniversaire Romain!";
+  const messageElement = document.createElement("h2");
+
+  confettiContainer.appendChild(messageElement);
+
+  let index = 0;
+  setInterval(function() {
+    if (index < messageText.length) {
+      messageElement.textContent += messageText[index];
+      index++;
+    }
+  }, 100);
+}</script>
+</body>
+</html>
